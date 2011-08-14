@@ -12,3 +12,7 @@ fib n | even n         = f1 * (f1 + 2 * f2)
    where k = n `div` 2
          f1 = fib k
          f2 = fib (k-1)
+
+twentyone n = sum(divisors(n))
+
+isAmicable n =  n == twentyone(twentyone(n)) && n /= twentyone(n)
