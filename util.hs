@@ -1,6 +1,11 @@
+import Data.Char
+import Numeric
+
 isPrime x = not $ any divisible $ takeWhile notTooBig [2..] where
      divisible y = x `mod`y == 0
      notTooBig y = y*y <= x
+
+isFactor x y = if x `mod` y == 0 then True else False
 
 divisors n = 1 : filter ( (==0) . rem n) [2..n `div` 2]
 
@@ -16,3 +21,9 @@ fib n | even n         = f1 * (f1 + 2 * f2)
 twentyone n = sum(divisors(n))
 
 isAmicable n =  n == twentyone(twentyone(n)) && n /= twentyone(n)
+
+isPalindrome n = numberToList n == reverse(numberToList n)
+
+numberToList n = map digitToInt (show n)
+
+toBin n = showIntAtBase 2 intToDigit n ""
