@@ -1,5 +1,6 @@
 import Data.Char
 import Numeric
+import Data.List
 
 isPrime x = not $ any divisible $ takeWhile notTooBig [2..] where
      divisible y = x `mod`y == 0
@@ -27,3 +28,7 @@ isPalindrome n = numberToList n == reverse(numberToList n)
 numberToList n = map digitToInt (show n)
 
 toBin n = showIntAtBase 2 intToDigit n ""
+
+slice :: [a] -> [[a]]
+slice = filter (not . null) . concatMap tails . inits
+
