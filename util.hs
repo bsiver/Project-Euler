@@ -32,3 +32,6 @@ toBin n = showIntAtBase 2 intToDigit n ""
 slice :: [a] -> [[a]]
 slice = filter (not . null) . concatMap tails . inits
 
+triangularNumbers n = scanl (+) 1 [2..n]
+
+abundantNumbers n = [n | n<-[1..n], sum(divisors n) > n]
